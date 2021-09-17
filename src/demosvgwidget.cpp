@@ -66,6 +66,7 @@ QString DemoSvgWidget::load(const QString& filename)
             qCritical() << error;
 
         }
+        _ids.clear();
         collectIds(_document, _renderer, _ids);
     }
     return error;
