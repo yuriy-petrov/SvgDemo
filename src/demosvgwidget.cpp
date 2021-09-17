@@ -104,7 +104,7 @@ void DemoSvgWidget::paintEvent(QPaintEvent* event)
 
 void DemoSvgWidget::resizeEvent(QResizeEvent* event)
 {
-    _cache = _cache.scaled(event->size());
+    _cache = QImage(event->size(), QImage::Format_ARGB32);
     repaint();
 }
 
@@ -130,6 +130,8 @@ void DemoSvgWidget::mousePressEvent(QMouseEvent* event)
 
 void DemoSvgWidget::repaint()
 {
+    _cache.fill(Qt::white);
     QPainter painter(&_cache);
     _renderer.render(&painter, _cache.rect());
 }
+

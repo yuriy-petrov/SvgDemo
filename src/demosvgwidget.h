@@ -28,7 +28,6 @@ protected:
 
 private:
     void repaint();
-    void updateCache();
 
 private:
     QDomDocument _document;
